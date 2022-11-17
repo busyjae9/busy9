@@ -5,10 +5,12 @@ import styles from "../styles/Home.module.css"
 import NavBar from "../components/NavBar"
 
 export default function Home() {
+  const [count, setCount] = useState(0)
+
   return (
     <div>
       <NavBar />
-      <p className={`dark:text-${"white"} text-4xl`}>Home</p>
+      About
     </div>
   )
 }
