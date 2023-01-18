@@ -1,36 +1,39 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import blog from "../blog.config.json"
+import blog from "../blog.config.js"
+import { textStyle } from "../styles/tailwind"
 
 export default function NavBar() {
   const router = useRouter()
+
+  console.log()
+
   return (
-    <div>
-      {blog.name}
-      <nav>
-        <Link
-          className={`${
-            router.pathname === "/" ? "text-red-400" : "text-black"
-          } ${
-            router.pathname === "/" ? "dark:text-red-400" : "dark:text-white"
-          } hover:text-red-400 dark:hover:text-red-400`}
-          href="/"
-        >
-          Home
-        </Link>
-        <Link
-          className={`${
-            router.pathname === "/about" ? "text-red-400" : "text-black"
-          } ${
-            router.pathname === "/about"
-              ? "dark:text-red-400"
-              : "dark:text-white"
-          }`}
-          href="/about"
-        >
-          About
-        </Link>
-      </nav>
+    <div className="flex flex-row items-center justify-center gap-x-6 p-6 bg-indigo-200 dark:bg-neutral-800">
+      <Link
+        className={textStyle({
+          sizes: "title",
+          colors: [
+            "hoverColor",
+            router.pathname === "/" ? "onColor" : "titleColor",
+          ],
+        })}
+        href="/"
+      >
+        Home
+      </Link>
+      <Link
+        className={textStyle({
+          sizes: "title",
+          colors: [
+            "hoverColor",
+            router.pathname === "/about" ? "onColor" : "titleColor",
+          ],
+        })}
+        href="/about"
+      >
+        About
+      </Link>
     </div>
   )
 }
