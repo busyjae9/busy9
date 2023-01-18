@@ -16,8 +16,18 @@ const nextConfig = mdx({
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   reactStrictMode: true,
   swcMinify: true,
+  assetPrefix:
+    process.env.NODE_ENV === "production"
+      ? "https://kisdelov.github.io/busy9"
+      : "",
   images: {
-    domains: ["media-exp1.licdn.com"],
+    loader: "imgix",
+    path: "https://kisdelov.github.io/busy9",
+  },
+  exportPathMap: function () {
+    return {
+      "/": { page: "/" },
+    }
   },
 })
 
