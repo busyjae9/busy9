@@ -2,7 +2,7 @@
   "name": "busy9",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://kisdelov.github.io/busy9", // homepage 추가
+  "homepage": "http://kisdelov.github.io/busy9",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
